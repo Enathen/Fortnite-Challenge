@@ -111,7 +111,7 @@
                     android:fontFamily="@font/luckiestguy"
                     android:gravity="center"
                     android:text="@string/locations"
-                    android:textColor="@color/colorAccent"
+                    android:textColor="@color/colorPrimary"
                     android:textSize="22sp" />
 
             </LinearLayout>
@@ -125,7 +125,7 @@
                     android:id="@+id/checkBoxCommonTown"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:buttonTint="@color/colorAccent"
+                    android:buttonTint="@color/colorPrimary"
                     android:fontFamily="@font/luckiestguy"
                     android:text="@string/commonTown"
                     android:textColor="@color/colorWhite"
@@ -135,7 +135,7 @@
                     android:id="@+id/checkBoxLargeTown"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:buttonTint="@color/colorAccent"
+                    android:buttonTint="@color/colorPrimary"
                     android:fontFamily="@font/luckiestguy"
                     android:text="@string/largeTown"
                     android:textColor="@color/colorWhite"
@@ -145,14 +145,13 @@
                     android:id="@+id/checkBoxUnnamedTown"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:buttonTint="@color/colorAccent"
+                    android:buttonTint="@color/colorPrimary"
                     android:fontFamily="@font/luckiestguy"
                     android:text="@string/unnamedTown"
                     android:textColor="@color/colorWhite"
                     android:textSize="22sp" />
 
             </LinearLayout>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -161,28 +160,27 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/imageView4"
+                    android:id="@+id/imageViewAPP"
                     android:layout_width="50dp"
-
+                    android:layout_gravity="center"
                     android:layout_height="50dp"
 
                     android:layout_weight="1"
-                    android:src="@drawable/insta" />
+                    android:src="@drawable/pubg" />
 
                 <TextView
-                    android:id="@+id/textView3"
+                    android:id="@+id/textViewAPP"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="5"
                     android:autoLink="web"
                     android:fontFamily="@font/luckiestguy"
-                    android:text="@string/crengr"
+                    android:text="@string/pubg"
 
                     android:textColor="@color/colorWhite"
-                    android:textSize="22sp"
+                    android:textSize="14sp"
                     android:textStyle="italic" />
-
             </LinearLayout>
 
             <LinearLayout

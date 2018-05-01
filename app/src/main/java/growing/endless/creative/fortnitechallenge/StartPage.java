@@ -26,9 +26,8 @@ import com.google.android.gms.ads.InterstitialAd;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
-import static growing.endless.creative.fortnitechallenge.Maps.createMaps;
 import static growing.endless.creative.fortnitechallenge.Challenge.getChallenge;
-import static growing.endless.creative.fortnitechallenge.RandomPicker.getRandom;
+import static growing.endless.creative.fortnitechallenge.Maps.createMaps;
 
 public class StartPage extends AppCompatActivity {
 
@@ -74,6 +73,14 @@ public class StartPage extends AppCompatActivity {
             return false;
         }
     };
+    private RandomPicker randomPickerLocation= new RandomPicker();
+    private RandomPicker randomPickerChallenge = new RandomPicker();
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        ((BottomNavigationView)findViewById(R.id.navigation)).getMenu().getItem(0).setChecked(true);
+    }
     private String TAG = "STARTPAGE";
     private View buttonRollClick;
     private InterstitialAd mInterstitialAd;
@@ -88,7 +95,7 @@ public class StartPage extends AppCompatActivity {
         setContentView(R.layout.activity_start_page);
 
         mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId("ca-app-pub-3607354849437438/7234401779");
+        mInterstitialAd.setAdUnitId("ca-app-pub-3607354849437438/7255077910");
         mTextMessage = (TextView) findViewById(R.id.message);
         final TouchImageView viewById = (TouchImageView) findViewById(R.id.imageViewClick);
         maps = createMaps(this);
@@ -118,7 +125,8 @@ public class StartPage extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                     final TouchImageView touchImageView = (TouchImageView) findViewById(R.id.imageViewClick);
-                    map = maps.get(((TextView) view).getText());
+                    String text = parent.getItemAtPosition(position).toString().trim();
+                    map = maps.get(text);
                     touchImageView.setImageDrawable(getDrawable(map.getMap()));
                     buttonRollClick.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -214,16 +222,18 @@ public class StartPage extends AppCompatActivity {
             ((TextView)findViewById(R.id.textViewLocation)).setText(getString(R.string.noLocation));
             new DrawOnMap(viewById,map.getMap(),StartPage.this);
         }else{
-            Location location = (Location) getRandom(map.getLocations());
+
+            Location location = (Location) randomPickerLocation.getRandom(map.getLocations());
             new DrawOnMap(viewById,map.getMap(), location, StartPage.this);
             ((TextView)findViewById(R.id.textViewLocation)).setText(location.getName());
 
         }
-        ArrayList<String> playstyle = getChallenge(StartPage.this);
-        if(playstyle.isEmpty()){
+        ArrayList<String> challenge = getChallenge(StartPage.this);
+        if(challenge.isEmpty()){
             ((TextView)findViewById(R.id.textViewChallenge)).setText(getString(R.string.noChallenge));
         }else{
-            ((TextView)findViewById(R.id.textViewChallenge)).setText((String) getRandom(playstyle));
+            String random = (String) randomPickerChallenge.getRandom(challenge);
+            ((TextView)findViewById(R.id.textViewChallenge)).setText(random);
 
         }
     }

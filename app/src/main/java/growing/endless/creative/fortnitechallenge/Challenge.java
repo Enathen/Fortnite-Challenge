@@ -38,6 +38,7 @@ public class Challenge {
         challenges.add(context.getString(R.string.challengeOnlyHandguns));
         challenges.add(context.getString(R.string.challengeOnlySniper));
         challenges.add(context.getString(R.string.challengeHilltop));
+        challenges.add(context.getString(R.string.challengeStaircaseToHeaven));
 
     }
 
@@ -56,7 +57,6 @@ public class Challenge {
         challenges.add(context.getString(R.string.squadOrDuoKillSoloBest));
         challenges.add(context.getString(R.string.squadOrDuoSensitivity));
         challenges.add(context.getString(R.string.squadOrDuoSensitivityEveryone));
-        challenges.add(context.getString(R.string.squadOrDuoLocation));
         challenges.add(context.getString(R.string.squadOrDuoDownMansSaved));
         challenges.add(context.getString(R.string.squadOrDuoDownMansDead));
         challenges.add(context.getString(R.string.squadOrDuoSilenceCoordinates));
